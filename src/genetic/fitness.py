@@ -43,8 +43,10 @@ def evaluate(individual, ratings_df):
         # Encontrar usuarios similares (los que también calificaron esas películas)
         similar_users = ratings_df[
             (ratings_df['movieId'].isin(liked_movies)) &
-            (ratings_df['userId'] != uid)
+            (ratings_df['userId'] != uid) &
+            (ratings_df['rating'] >= LIKE_THRESHOLD)
         ]
+        # falta que le guste <<<<<<------------------
 
         # print(f"👥 Usuarios similares encontrados: {len(similar_users)}")
         # print(similar_users[['userId', 'movieId', 'rating']].head(5))
@@ -73,7 +75,7 @@ def evaluate(individual, ratings_df):
             .index.tolist()
         )
 
-        # print(f" Películas recomendadas: {recommended}")
+        print(f" Películas recomendadas: {recommended}")
 
         # Películas que al usuario realmente le gustaron (fuera del conjunto conocido)
         true_likes = user_data[
