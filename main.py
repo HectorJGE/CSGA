@@ -6,9 +6,9 @@ from src.utils.data_loader import load_movies, build_item_pool
 from src.genetic.population import Population
 from src.genetic.fitness import init_fitness_cache, init_content_cache, evaluate
 
-POP_SIZE = 10
+POP_SIZE = 100
 ITEMS_PER_SET = 5
-N_GENERATIONS = 5
+N_GENERATIONS = 10
 SEED = 42
 
 def set_seed(seed: int = 42):

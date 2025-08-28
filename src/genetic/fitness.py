@@ -1,6 +1,7 @@
 from collections import defaultdict
 import numpy as np
 import pandas as pd
+from math import log, exp, sqrt
 
 # Caches de módulo (se rellenan con init_fitness_cache)
 _FCACHE = {
